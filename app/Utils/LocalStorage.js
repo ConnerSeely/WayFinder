@@ -13,12 +13,12 @@ export function saveState() {
         reservations: ProxyState.reservations
     }
 
-    window.localStorage.setReservation('travelData', JSON.stringify(data))
+    window.localStorage.setItem('travelData', JSON.stringify(data))
 }
 
 export function loadState() {
     console.log('loading');
-    let data = window.localStorage.getReservation('travelData')
+    let data = window.localStorage.getItem('travelData')
     if (data) {
         let obj = JSON.parse(data)
         ProxyState.trips = obj.trips.map(td => new Trip(td))

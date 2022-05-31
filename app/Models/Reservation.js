@@ -11,6 +11,7 @@ export class Reservation {
     this.address = data.address
     this.date = new Date(data.date)
     this.cost = data.cost
+    this.tripId = data.tripId
   }
 
   get Template() {
@@ -29,11 +30,12 @@ export class Reservation {
               <p>${this.address}</p>
             </div>
             <div class="col-1">
-              <p>${this.date}</p>
+              <p>'${this.date}'</p>
             </div>
             <div class="col-1">
               <p>${this.cost}</p>
             </div>
+            <button type="button" class="btn btn-danger" onclick="app.reservationsController.deleteReservation('${this.id}')">Delete Reservation</button>
     `
   }
 }

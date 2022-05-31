@@ -1,6 +1,6 @@
 import { ProxyState } from "../AppState.js";
 import { reservationsService } from "../Services/ReservationsService.js";
-
+import { Pop } from "../Utils/Pop.js";
 
 export class ReservationsController {
     constructor() {
@@ -25,7 +25,9 @@ export class ReservationsController {
         reservationsService.addReservation(reservationData)
     }
 
-    deleteReservation(id) {
-        reservationsService.deleteReservation(id)
+    async deleteReservation(id) {
+        if (await Pop.confirm('are you sure you want to delete this?')) {
+            reservationsService.deleteReservation(id)
+        }
     }
 }

@@ -2,19 +2,19 @@ import { generateId } from "../Utils/generateId.js";
 
 
 export class Reservation {
-    constructor(data) {
-        this.id = data.id || generateId()
-        this.reservationId = data.reservationId
-        this.type = data.type
-        this.name = data.name
-        this.confirmNumber = data.confirmNumber
-        this.address = data.address
-        this.date = data.date
-        this.cost = data.cost
-    }
+  constructor(data) {
+    this.id = data.id || generateId()
+    this.reservationId = data.reservationId
+    this.type = data.type
+    this.name = data.name
+    this.confirmNumber = data.confirmNumber
+    this.address = data.address
+    this.date = new Date(data.date)
+    this.cost = data.cost
+  }
 
-    get Template() {
-        return `
+  get Template() {
+    return `
         <div class="row p-3">
             <div class="col-1">
               <p>${this.type}</p>
@@ -35,5 +35,5 @@ export class Reservation {
               <p>${this.cost}</p>
             </div>
     `
-    }
+  }
 }

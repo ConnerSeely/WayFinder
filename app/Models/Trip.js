@@ -2,15 +2,15 @@ import { ProxyState } from "../AppState.js";
 import { generateId } from "../Utils/generateId.js";
 
 export class Trip {
-    constructor(tripData) {
-        this.id = tripData.id || generateId()
-        this.name = tripData.name
-        this.notes = tripData.notes
-    }
+  constructor(tripData) {
+    this.id = tripData.id || generateId()
+    this.name = tripData.name
+    this.notes = tripData.notes
+  }
 
 
-    get Template() {
-        return `  
+  get Template() {
+    return `  
         <div class="col d-flex justify-content-center">
           <h1>${this.name}</h1>
         </div>
@@ -45,7 +45,7 @@ export class Trip {
             </div>
             <div class="modal-body">
               <form class="trip-form">
-                <input type="text" name="name" id="name" placeholder="name">
+                <input type="text" name="name" id="name" minLength="3" maxLength="15" placeholder="name">
               </form>
             </div>
             <div class="modal-footer">
@@ -57,20 +57,20 @@ export class Trip {
       </div>
           `
 
-    }
+  }
 
-    get Reservations() {
-        let reservations = ProxyState.reservations.sort((a, b) => a.date - b.date)
-        let template = ''
-        reservations.forEach(r => template += r.Template)
-        return template
-    }
+  get Reservations() {
+    let reservations = ProxyState.reservations.sort((a, b) => a.date - b.date)
+    let template = ''
+    reservations.forEach(r => template += r.Template)
+    return template
+  }
 
-    get Total() {
-        let reservations = ProxyState.reservations.filter(r => r.tripId == this.id)
-        let subTotal = 0
-        reservations.forEach(r => subTotal += parseInt(r.cost))
-        return subTotal
-    }
+  get Total() {
+    let reservations = ProxyState.reservations.filter(r => r.tripId == this.id)
+    let subTotal = 0
+    reservations.forEach(r => subTotal += parseInt(r.cost))
+    return subTotal
+  }
 
 }

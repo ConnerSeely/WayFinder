@@ -23,15 +23,66 @@
       </a>
     </nav>
   </header>
+
   <main>
     <div class="container-fluid">
-      <div class="row">
-        <div class="col-12">
-          <div id="app"></div>
+      <div class="row p-3 bg-primary">
+        <div class="col-1">
+          Type
+        </div>
+        <div class="col-3">
+          Name
+        </div>
+        <div class="col-3">
+          Confirmation #
+        </div>
+        <div class="col-3">
+          Address
+        </div>
+        <div class="col-1">
+          Date
+        </div>
+        <div class="col-1">
+          Cost
         </div>
       </div>
-    </div>
+      <div id="trips" class="row p-3">
+        <!-- <div class="col-1">
+          <p>something here</p>
+        </div>
+        <div class="col-3">
+          <p>something here</p>
+        </div>
+        <div class="col-3">
+          <p>something here</p>
+        </div>
+        <div class="col-3">
+          <p>something here</p>
+        </div>
+        <div class="col-1">
+          <p>something here</p>
+        </div>
+        <div class="col-1">
+          <p>something here</p>
+        </div>
+        <form class="item-form" onsubmit="app.reservationsController.addReservation()">
+          <select name="type" id="type">
+            <option value="plane">✈️ plane</option>
+            <option value="hotel">🏨 hotel</option>
+            <option value="car"> 🚗 car</option>
+          </select>
+          <input type="text" name="name" id="name" placeholder="name">
+          <input type="text" name="confirmation #" id="confirmation #" placeholder="confirmation #">
+          <input type="text" name="address" id="address" placeholder="address">
+          <input type="text" name="date" id="date" placeholder="date">
+          <input type="number" name="cost" id="cost" placeholder="cost">
+          <button class="btn btn-primary" title="add reservation"> + </button>
+        </form>
+        <textarea onblur="app.tripsController.updateTrip('')" class="border-0">Notes</textarea>
+        <h4 class="text-end">Total : </h4> -->
+      </div>
   </main>
+
   <footer class="bg-dark text-light">
     <div class="text-center no-select">
       <p><small>Made with 💖 by Codeworks</small></p>
